@@ -37,16 +37,18 @@ zoom in on an SVG, your browser recalculates the math to redraw it perfectly at 
 **How it's programmed**
 SVG is written as text, similar to HTML. Here's a simple example:
 
+```
 <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
     <circle cx="100" cy="100" r="50" fill="blue" />
     <rect x="25" y="25" width="50" height="50" fill="red" />
 </svg>
+```
 
 This creates a blue circle and a red rectangle. The syntax uses:
-    - Basic shapes: <circle>, <rect>, <ellipse>, <line>, <polygon>
-    - Paths: <path> for complex custom shapes using commands like M (move), L (line), C
+- Basic shapes: \<circle\>, \<rect\>, \<ellipse\>, \<line\>, \<polygon\>
+- Paths: \<path\> for complex custom shapes using commands like M (move), L (line), C
     (curve)
-    - Attributes: Position (x,y), size (width, height, radius), appearance (fill, stroke, opacity)
+- Attributes: Position (x,y), size (width, height, radius), appearance (fill, stroke, opacity)
 
 You can also add gradients, filters, animations, and text. SVG can be embedded directly in
 HTML, saved as .svg files, or manipulated with CSS and JavaScript just like HTML elements.
@@ -72,14 +74,16 @@ Check line 82 and the lines above it. Look for:
 1. **Is line 82 indented with a tab?** If so, it's being interpreted as a recipe command, but there's no target for it to belong to.
 2. **Is there a target with a colon above it?** You need something like:
 
+```
 target_name:
     command here
+```
 
 3. **Did a previous target definition get broken?** Common issues:
     - Missing colon after the target name
     - A comment accidentally splitting a target from its recipe
     - A variable assignment where a target should be
-4. **Tabs vs spaces issue?** Recipe lines MUST use a literal tab character, not spaces. If you
+5. **Tabs vs spaces issue?** Recipe lines MUST use a literal tab character, not spaces. If you
 have spaces, Make won't recognize it as a recipe, which can cascade into confusion.
 
 **To fix it:**
